@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Theme Website Design</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="hero">
+        <nav class="navigation">
+            <div class="logo">
+              <h1>Collynx</h1>
+            </div>
+            <ul class="unordered-list">
+              <li><a href="">HOME</a></li>
+              <li><a href="">ABOUT</a></li>
+              <li><a href="">PORTFOLIO</a></li>
+              <li><a href="">SERVICES</a></li>
+              <li><a href="">HIRE ME</a></li>
+            </ul>
+            <img src="dark theme icon/moon.png" title="Change theme" id="icon"></img>
+          </nav>
+      
+          <div class="intro-section">
+            <div class="intro-wrapper">
+              <div class="introduction">
+                <h1>I&rsquo;m <span>Afolabi</span> Collins</h1>
+                <p>
+                  This is my official portfolio website to showcase all my works
+                  related to web development and UI design.
+                </p>
+                <button>Download CV</button>
+              </div>
+      
+              <div class="social-links">
+                <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href=""><i class="fa-brands fa-behance"></i></a>
+                <a href=""><i class="fa-brands fa-dribbble"></i></a>
+              </div>
+            </div>
+      
+            <div class="portfolio-img">
+              <!-- <img src="image.jpg" alt="" /> -->
+              <img src="images/pattern.png" alt="" class="back-img">
+              <img src="images/image2.png" class="main-img">
+            </div>
+          </div>
+    </div>
+
+    <script>
+        var icon = document.getElementById("icon");
+
+        if(localStorage.getItem("theme") == null) {
+            localStorage.setItem("theme", "light");
+        }
+
+        let localData = localStorage.getItem("theme");
+
+        if(localData == "light") {
+            icon.src = "dark theme icon/moon.png";
+            document.body.classList.remove("dark-theme");
+        } else if (localData == "dark") {
+            icon.src = "dark theme icon/sun.png";
+            document.body.classList.add("dark-theme");
+        }
+
+        icon.onclick = function (){
+            document.body.classList.toggle("dark-theme");
+            if(document.body.classList.contains("dark-theme")){
+                icon.src = "dark theme icon/sun.png";
+                localStorage.setItem("theme", "dark");
+            } else {
+                icon.src = "dark theme icon/moon.png";
+                localStorage.setItem("theme", "light");
+            }
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/fd5ff58c2d.js" crossorigin="anonymous"></script>
+  </body>
+</html>
